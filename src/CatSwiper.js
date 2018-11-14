@@ -1,12 +1,13 @@
-import axios from 'axios';
-import React from 'react';
+import axios from "axios";
+import React from "react";
 
-const makeUrl = () => `${API_URL}/v1/images/search?limit=1&order=random&size=full`;
+const makeUrl = () =>
+  `${API_URL}/v1/images/search?limit=1&order=random&size=full`;
 
 class CatSwiper extends React.Component {
   state = {
     currentCatUrl: null,
-    loading: true,
+    loading: true
   };
 
   componentDidMount() {
@@ -14,14 +15,14 @@ class CatSwiper extends React.Component {
   }
 
   handleGetCat = () => {
-    this.setState({ loading: true })
+    this.setState({ loading: true });
     axios
       .get(makeUrl())
       .then(res =>
         this.setState({ currentCatUrl: res.data[0].url, loading: false })
       )
-      .catch(() => this.setState({ loading: false }))
-  }
+      .catch(() => this.setState({ loading: false }));
+  };
 
   render() {
     return (
@@ -32,12 +33,14 @@ class CatSwiper extends React.Component {
           </button>
         </div>
         <div>
-          {this.state.loading
-            ? <div>Loading...</div>
-            : <img style={{ width: '500px' }} src={this.state.currentCatUrl} />}
+          {this.state.loading ? (
+            <div>Loading...</div>
+          ) : (
+            <img style={{ width: "500px" }} src={this.state.currentCatUrl} />
+          )}
         </div>
       </div>
-    )
+    );
   }
 }
 

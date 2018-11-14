@@ -1,5 +1,5 @@
-import React from 'react';
-import CatSwiper from './CatSwiper';
+import React from "react";
+import CatSwiper from "./CatSwiper";
 
 const App = () => (
   <div>
