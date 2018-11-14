@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const webpack = require('webpack');
 
 const ROOT = path.resolve(__dirname, '.');
 
@@ -11,6 +12,9 @@ module.exports = env => ({
     filename: 'bundle.js'
   },
   plugins: [
+    new webpack.DefinePlugin({
+      API_URL: JSON.stringify(env['api-url']),
+    }),
     new HtmlWebpackPlugin({
       template: path.resolve(ROOT, 'src/index.html')
     })
