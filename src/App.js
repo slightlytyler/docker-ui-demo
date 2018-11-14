@@ -3,7 +3,7 @@ import CatSwiper from './CatSwiper';
 
 const App = () => (
   <div>
-    <h1>🐳🐳🐳 Docker UI Demo 🐳🐳🐳</h1>
+    <h1 data-testid="header">🐳🔥🐳 Docker UI Demo 🔥🐳🔥</h1>
     <CatSwiper />
   </div>
 );
