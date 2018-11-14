@@ -3,15 +3,17 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '.');
 
-module.exports = {
-  mode: 'production',
+module.exports = env => ({
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   entry: path.resolve(ROOT, 'src/main.js'),
   output: {
     path: path.resolve(ROOT, 'dist'),
     filename: 'bundle.js'
   },
   plugins: [
-    new HtmlWebpackPlugin()
+    new HtmlWebpackPlugin({
+      template: path.resolve(ROOT, 'src/index.html')
+    })
   ],
   module: {
     rules: [
@@ -21,5 +23,22 @@ module.exports = {
         use: 'babel-loader'
       }
     ]
-  }
-};
+  },
+  devServer: {
+      noInfo: false,
+      port: env.port,
+      quiet: false,
+      stats: {
+        assets: false,
+        children: false,
+        chunks: false,
+        chunkModules: false,
+        colors: true,
+        entrypoints: false,
+        hash: false,
+        modules: false,
+        timings: false,
+        version: false,
+    }
+  },
+});
