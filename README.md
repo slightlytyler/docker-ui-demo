@@ -3,7 +3,7 @@
 ## Building
 
 ```sh
-yarn build
+make build
 ```
 
 ## Development
