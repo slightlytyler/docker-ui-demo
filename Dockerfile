@@ -12,5 +12,5 @@ COPY --from=deps /usr/app/node_modules /usr/app/node_modules
 COPY . /usr/app
 RUN yarn build
 
-FROM scratch AS dtr_ui
+FROM scratch AS ui
 COPY --from=build /usr/app/dist /usr/app
