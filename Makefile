@@ -21,4 +21,12 @@ run-dev:
 	docker run -it --rm -p $(PORT):$(PORT) $(VOLUME_MOUNTS) $(TAG_DEV) \
 		dev --env.api-url $(API_URL) --env.host 0.0.0.0 --env.port $(PORT)
 
+build-dev:
+	docker build -f dev.Dockerfile -t $(TAG_DEV):$(GIT_SHA) . \
+		&& docker tag $(TAG_DEV):$(GIT_SHA) $(TAG_DEV):latest
+
+run-dev:
+	docker run -it --rm -p $(PORT):$(PORT) $(VOLUME_MOUNTS) $(TAG_DEV) \
+		dev --env.api-url $(API_URL) --env.host 0.0.0.0 --env.port $(PORT)
+
 .PHONY: build build-dev run-dev
