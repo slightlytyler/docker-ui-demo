@@ -9,7 +9,7 @@ make build
 ## Development
 
 ```sh
-yarn dev --env.api-url https://api.thecatapi.com --env.port 3000
+make run-dev API_URL=https://api.thecatapi.com
 ```
 
 ## Testing
