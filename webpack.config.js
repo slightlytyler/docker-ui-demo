@@ -29,6 +29,7 @@ module.exports = env => ({
     ]
   },
   devServer: {
+    host: env.host,
     noInfo: false,
     port: env.port,
     quiet: false,
