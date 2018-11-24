@@ -26,7 +26,7 @@ run-dev:
 		dev --env.api-url $(API_URL) --env.host 0.0.0.0 --env.port $(PORT) $(ARGS)
 
 run-yarn:
-	docker run -it --rm $(VOLUME_MOUNTS_WITH_DEP_STUFF) $(REPO_DEV) $(ARGS)
+	docker run -it --rm $(VOLUME_MOUNTS_WITH_DEP_STUFF) $(TAG_DEV) $(ARGS)
 
 run-%:
 	docker run -it --rm $(VOLUME_MOUNTS) $(TAG_DEV) $$(echo $@ | sed 's/run-//') $(ARGS)
