@@ -15,11 +15,11 @@ make run-dev API_URL=https://api.thecatapi.com
 ## Testing
 
 ```sh
-yarn test
+make run-test
 ```
 
 ## Formatting
 
 ```sh
-yarn fmt
+make run-fmt
 ```
