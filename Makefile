@@ -1,10 +1,10 @@
 GIT_SHA=$(shell git rev-parse HEAD)
-REPO=slightlytyler/docker-ui-demo
+TAG=slightlytyler/docker-ui-demo
 
 all: build
 
 build:
-	docker build -t $(REPO):$(GIT_SHA) . \
-		&& docker tag $(REPO):$(GIT_SHA) $(REPO):latest
+	docker build -t $(TAG):$(GIT_SHA) . \
+		&& docker tag $(TAG):$(GIT_SHA) $(TAG):latest
 
 .PHONY: build
