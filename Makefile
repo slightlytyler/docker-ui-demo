@@ -9,6 +9,7 @@ TAG_DEV=slightlytyler/docker-ui-demo-dev
 VOLUME_MOUNTS=-v $(PWD)/src:/usr/app/src \
 			  -v $(PWD)/package.json:/usr/app/package.json \
 			  -v $(PWD)/webpack.config.js:/usr/app/webpack.config.js
+VOLUME_MOUNTS_WITH_DEP_STUFF=$(VOLUME_MOUNTS) -v $(PWD)/yarn.lock:/usr/app/yarn.lock
 
 all: build
 
@@ -23,6 +24,9 @@ build-dev:
 run-dev:
 	docker run -it --rm -p $(PORT):$(PORT) $(VOLUME_MOUNTS) $(TAG_DEV) \
 		dev --env.api-url $(API_URL) --env.host 0.0.0.0 --env.port $(PORT) $(ARGS)
+
+run-yarn:
+	docker run -it --rm $(VOLUME_MOUNTS_WITH_DEP_STUFF) $(REPO_DEV) $(ARGS)
 
 run-%:
 	docker run -it --rm $(VOLUME_MOUNTS) $(TAG_DEV) $$(echo $@ | sed 's/run-//') $(ARGS)
