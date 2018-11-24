@@ -31,4 +31,4 @@ run-yarn:
 run-%:
 	docker run -it --rm $(VOLUME_MOUNTS) $(TAG_DEV) $$(echo $@ | sed 's/run-//') $(ARGS)
 
-.PHONY: build build-dev run-dev
+.PHONY: build build-dev run-dev run-yarn
