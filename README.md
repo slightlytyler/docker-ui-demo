@@ -23,3 +23,9 @@ make run-test
 ```sh
 make run-fmt
 ```
+
+## Project administration
+
+```sh
+make run-yarn ARGS="add some-package"
+```
